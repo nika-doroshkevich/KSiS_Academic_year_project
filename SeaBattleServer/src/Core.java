@@ -45,6 +45,7 @@ public class Core {
         if (playerMap[enemyID][x][y] == 1) {
             playerShot[ID][x][y] = 3;
             playerMap[enemyID][x][y] = 3;
+            fillEmptyCell(enemyID, x, y);
         }
     }
 
@@ -62,5 +63,80 @@ public class Core {
                 if (playerMap[ID][i][j] == 1)
                     return false;
         return true;
+    }
+
+    public static void fillEmptyCell(int ID, int x, int y) {
+        int x1 = x, y1 = y;
+        int x2 = x, y2 = y;
+        //top
+        while (true) {
+            if (x1 == 0)
+                break;
+            if (playerMap[ID][x1 - 1][y1] == 1)
+                return;
+            if (playerMap[ID][x1 - 1][y1] == 2 || playerMap[ID][x1 - 1][y1] == 0)
+                break;
+            x1--;
+        }
+        //left
+        while (true) {
+            if (y1 == 0)
+                break;
+            if (playerMap[ID][x1][y1 - 1] == 1)
+                return;
+            if (playerMap[ID][x1][y1 - 1] == 2 || playerMap[ID][x1][y1 - 1] == 0)
+                break;
+            y1--;
+        }
+        //bottom
+        while (true) {
+            if (x2 == size - 1)
+                break;
+            if (playerMap[ID][x2 + 1][y2] == 1)
+                return;
+            if (playerMap[ID][x2 + 1][y2] == 2 || playerMap[ID][x2 + 1][y2] == 0)
+                break;
+            x2++;
+        }
+        //right
+        while (true) {
+            if (y2 == size - 1)
+                break;
+            if (playerMap[ID][x2][y2 + 1] == 1)
+                return;
+            if (playerMap[ID][x2][y2 + 1] == 2 || playerMap[ID][x2][y2 + 1] == 0)
+                break;
+            y2++;
+        }
+
+        x1--;
+        x2++;
+        y1--;
+        y2++;
+        for (int i = x1; i <= x2; i++)
+            if (i >= 0 && i < size) {
+                if (y1 >= 0 && y1 < size) {
+                    playerMap[ID][i][y1] = 2;
+                    playerShot[(ID + 1) % 2][i][y1] = 2;
+                }
+
+                if (y2 >= 0 && y2 < size) {
+                    playerMap[ID][i][y2] = 2;
+                    playerShot[(ID + 1) % 2][i][y2] = 2;
+                }
+            }
+
+        for (int j = y1; j <= y2; j++)
+            if (j >= 0 && j < size) {
+                if (x1 >= 0 && x1 < size) {
+                    playerMap[ID][x1][j] = 2;
+                    playerShot[(ID + 1) % 2][x1][j] = 2;
+                }
+
+                if (x2 >= 0 && x2 < size) {
+                    playerMap[ID][x2][j] = 2;
+                    playerShot[(ID + 1) % 2][x2][j] = 2;
+                }
+            }
     }
 }

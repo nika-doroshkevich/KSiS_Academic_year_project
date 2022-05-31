@@ -44,10 +44,6 @@ public class ReceivingObject {
         return enemyMap;
     }
 
-    public static int[] getMasNumShip() {
-        return masNumShip;
-    }
-
     public static void setShip(int x1, int y1) {
         if (masNumShip[ship.getSizeShip() - 1] <= 0)
             return;
@@ -141,8 +137,6 @@ public class ReceivingObject {
         switch (command[0]) {
             case "game":
                 setPlayerMap(command[1], command[2]);
-
-                //System.out.println("command[1]" + command[1] + "command[2]" + command[2]);
                 numPlayer = Integer.parseInt(command[3]);
                 numStepPlayer = Integer.parseInt((command[4]));
                 break;

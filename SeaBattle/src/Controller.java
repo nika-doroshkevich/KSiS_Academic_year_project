@@ -31,7 +31,7 @@ public class Controller implements MouseListener, KeyListener {
         x -= 10;
         //click for second field
         ReceivingObject.send("step:" + x + ":" + y);
-        System.out.println(x + " " + y);
+        //System.out.println(x + " " + y);
     }
 
     @Override
@@ -63,7 +63,7 @@ public class Controller implements MouseListener, KeyListener {
     public void keyPressed(KeyEvent e) {
         if (ReceivingObject.stateController != 0)
             return;
-        System.out.println(e.getKeyCode());
+        //System.out.println(e.getKeyCode());
         if (e.getKeyCode() == '1')
             ReceivingObject.ship.setSizeShip(1);
         if (e.getKeyCode() == '2')
