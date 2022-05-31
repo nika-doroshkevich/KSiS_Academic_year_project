@@ -6,6 +6,7 @@ import java.io.IOException;
 
 public class GameGraphic extends JPanel {
     Image black, enemyShot, miss, ship, shot, water;
+
     {
         try {
             black = ImageIO.read(GameGraphic.class.getResourceAsStream("black.png"));
@@ -22,6 +23,8 @@ public class GameGraphic extends JPanel {
     @Override
     public void paint(Graphics g) {
         int size = Math.min(getWidth() / 2, getHeight());
+        g.setColor(Color.white);
+        g.fillRect(0, 0, getWidth(), getHeight());
         BufferedImage img = new BufferedImage(2 * size, size, BufferedImage.TYPE_4BYTE_ABGR);
         int[][] map = ReceivingObject.getHeroMap();
         if (map == null)
@@ -45,6 +48,7 @@ public class GameGraphic extends JPanel {
                         break;
                     default:
                         drawImage(imgG, j * cellSize, i * cellSize, cellSize, black);
+                        break;
                 }
             }
         }
@@ -59,10 +63,11 @@ public class GameGraphic extends JPanel {
                         drawImage(imgG, j * cellSize + size, i * cellSize, cellSize, miss);
                         break;
                     case 3:
-                        drawImage(imgG, j * cellSize, i * cellSize, cellSize, enemyShot);
+                        drawImage(imgG, j * cellSize + size, i * cellSize, cellSize, enemyShot);
                         break;
                     default:
                         drawImage(imgG, j * cellSize + size, i * cellSize, cellSize, black);
+                        break;
                 }
             }
         }
@@ -70,6 +75,20 @@ public class GameGraphic extends JPanel {
         ReceivingObject.heightTop = (getHeight() - size) / 2;
         ReceivingObject.widthLeft = (getWidth() - 2 * size) / 2;
         g.drawImage(img, (getWidth() - 2 * size) / 2, (getHeight() - size) / 2, null);
+
+        String s = "";
+        g.setFont(new Font("Arial", Font.BOLD, 300));
+        if (ReceivingObject.isWin == 0) {
+            g.setColor(Color.RED);
+            s = "LOSE";
+        }
+        if (ReceivingObject.isWin == 1) {
+            g.setColor(Color.GREEN);
+            s = "WIN";
+        }
+        if (ReceivingObject.isWin != -1) {
+            g.drawString(s, getWidth() / 2 - 360, getHeight() / 2 + 90);
+        }
     }
 
     private void drawImage(Graphics imgG, double x, double y, double cellSize, Image img) {

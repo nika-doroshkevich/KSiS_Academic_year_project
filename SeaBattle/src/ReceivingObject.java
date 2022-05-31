@@ -1,13 +1,12 @@
-import java.io.*;
-import java.lang.reflect.Field;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 import java.util.Arrays;
 
 public class ReceivingObject {
-    static int state = 1; //1-расстановка 2-игра
-
-    static int heroMap[][] = new int[10][10];
-    static int enemyMap[][] = new int[10][10];
+    public static volatile int heroMap[][] = new int[10][10];
+    public static volatile int enemyMap[][] = new int[10][10];
     static int masNumShip[] = new int[]{4, 3, 2, 1};
 
     static int size = 1;
@@ -20,10 +19,12 @@ public class ReceivingObject {
     static DataInputStream in;
     static DataOutputStream out;
 
-    static int numPlayer = 0; //Номер самого игрока
-    static int numStepPlayer = 0; //Номер игрока, который сейчас должен стрелять
+    static int numPlayer = 0; //The number of the player himself
+    static int numStepPlayer = 1; //The number of the player who should be shooting now
 
     static int stateController = 0; //0 - can change, 1 - not
+
+    static int isWin = -1; //0 - lose, 1 - win
 
     static {
         try {
@@ -31,7 +32,7 @@ public class ReceivingObject {
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
         } catch (IOException e) {
-            e.printStackTrace();
+            System.exit(0);
         }
     }
 
@@ -127,18 +128,28 @@ public class ReceivingObject {
             String[] command = in.readLine().split(":");
             System.out.println("get message " + Arrays.toString(command));
             runCommand(command);
+            if (numPlayer != numStepPlayer)
+                getMessage();
+
         } catch (IOException e) {
-            e.printStackTrace();
+            System.exit(0);
         }
+
     }
 
     public static void runCommand(String[] command) {
         switch (command[0]) {
             case "game":
                 setPlayerMap(command[1], command[2]);
+
+                //System.out.println("command[1]" + command[1] + "command[2]" + command[2]);
                 numPlayer = Integer.parseInt(command[3]);
                 numStepPlayer = Integer.parseInt((command[4]));
                 break;
+            case "win":
+                setPlayerMap(command[3], command[4]);
+                isWin = (command[1].equals(command[2])) ? 1 : 0;
+
         }
     }
 }

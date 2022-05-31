@@ -1,5 +1,3 @@
-import org.openjsse.sun.security.rsa.RSAUtil;
-
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -9,6 +7,8 @@ public class Controller implements MouseListener, KeyListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        if (ReceivingObject.isWin != -1)
+            return;
         int x = e.getX();
         int y = e.getY();
         x -= ReceivingObject.widthLeft;
@@ -26,8 +26,11 @@ public class Controller implements MouseListener, KeyListener {
         }
         if (ReceivingObject.stateController == 0)
             return;
+        if (ReceivingObject.numPlayer != ReceivingObject.numStepPlayer)
+            return;
         x -= 10;
         //click for second field
+        ReceivingObject.send("step:" + x + ":" + y);
         System.out.println(x + " " + y);
     }
 
@@ -75,7 +78,6 @@ public class Controller implements MouseListener, KeyListener {
             if (ReceivingObject.checkMap()) {
                 ReceivingObject.stateController = 1;
                 ReceivingObject.send("start:" + ReceivingObject.getPlayerMap());
-                ReceivingObject.getMessage();
             } else
                 System.out.println("Error");
     }

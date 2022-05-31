@@ -1,11 +1,11 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.ExecutorService;
 
 public class Main {
+    static PlayerThreadController p1 = null;
+    static PlayerThreadController p2 = null;
+
     public static void main(String[] args) {
         try (ServerSocket server = new ServerSocket(5000)) {
             System.out.println("Server Socket Created");
@@ -14,7 +14,10 @@ public class Main {
                 System.out.println("wait");
                 Socket client = server.accept();
                 System.out.println("connect");
-                new PlayerThreadController(client);
+                if (p1 == null)
+                    p1 = new PlayerThreadController(client);
+                else
+                    p2 = new PlayerThreadController(client);
             }
         } catch (IOException e) {
             e.printStackTrace();
