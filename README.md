@@ -19,7 +19,7 @@ __Client application from the side of the first player:__
 <img src="[Assets/icon.png](Screenshots/1.png)" width="200">
 
 __Client application from the side of the second player:__
-![](https://github.com/nika-doroshkevich/KSiS_Academic_year_project/blob/main/Screenshots/2.png){:height="36px" width="36px"}
+![](https://github.com/nika-doroshkevich/KSiS_Academic_year_project/blob/main/Screenshots/2.png){height=400px width=500px}
 
 __Client application by the first player after winning:__
 ![](https://github.com/nika-doroshkevich/KSiS_Academic_year_project/blob/main/Screenshots/3.png =100x20)
