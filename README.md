@@ -16,16 +16,16 @@ ________________________________________________________________________________
 ### What have I done :question:
 
 __Client application from the side of the first player:__
-![](https://github.com/nika-doroshkevich/KSiS_Academic_year_project/blob/main/Screenshots/1.png width="100")
+![](https://github.com/nika-doroshkevich/KSiS_Academic_year_project/blob/main/Screenshots/1.png =100x20)
 
 __Client application from the side of the second player:__
-![](https://github.com/nika-doroshkevich/KSiS_Academic_year_project/blob/main/Screenshots/2.png width="100")
+![](https://github.com/nika-doroshkevich/KSiS_Academic_year_project/blob/main/Screenshots/2.png =100x20)
 
 __Client application by the first player after winning:__
-![](https://github.com/nika-doroshkevich/KSiS_Academic_year_project/blob/main/Screenshots/3.png width="100")
+![](https://github.com/nika-doroshkevich/KSiS_Academic_year_project/blob/main/Screenshots/3.png =100x20)
 
 __Client application by the second player after losing:__
-![](https://github.com/nika-doroshkevich/KSiS_Academic_year_project/blob/main/Screenshots/4.png)
+![](https://github.com/nika-doroshkevich/KSiS_Academic_year_project/blob/main/Screenshots/4.png =100x20)
 
 ________________________________________________________________________________________________
 
