@@ -1,8 +1,8 @@
-# My academic year project in Java for the subject "Computer systems and networks"
+# My academic year project in Java for the subject "Computer systems and networks" :ship:
 
 :mortar_board: I did this project in the second year of university in the fourth semester.
 
-...and it is... the game "Sea Battle"
+...and it is... the game "Sea Battle" :sunglasses:
 
 This is a client-server application. And I used Sockets in __Java__ to create this project.
 
@@ -25,26 +25,26 @@ __Client application from the side of the second player:__
 
 ________________________________________________________________________________________________
 
-__Client application by the first player after winning:__
+__Client application by the first player after winning:__ :star:
 ![](https://github.com/nika-doroshkevich/KSiS_Academic_year_project/blob/main/Screenshots/3.png)
 
 ________________________________________________________________________________________________
 
-__Client application by the second player after losing:__
+__Client application by the second player after losing:__ :boom:
 ![](https://github.com/nika-doroshkevich/KSiS_Academic_year_project/blob/main/Screenshots/4.png)
 
 ________________________________________________________________________________________________
 
 ### What can it do :question:
 
-__Placement:__
+__Placement:__ :anchor:
 
 - it is possible to place ships on the field
 - it is possible to remove the ship from the field
 - it is possible to choose the type of ship for placement
 - it is possible to rotate the ship by pressing a key
 
-__During the game:__
+__During the game:__ :ship:
 
 - displaying the status of the game, the order of the move
 - hit and miss display
@@ -53,12 +53,12 @@ __During the game:__
 - displaying a "Win" or "Loss" at the end of the game
 - ability to scale the game window
 
-__For the client:__
+__For the client:__ :globe_with_meridians:
 
 - the ability to send matrices with ships and coordinates of shots
 - the ability to accept the updated matrix with ships and matrix with shots, as well as flags
 
-__For the server:__
+__For the server:__ :globe_with_meridians:
 
 - the ability to change the status of the cell depending on the user's progress
 - the ability to accept matrices with ships and coordinates of shots
