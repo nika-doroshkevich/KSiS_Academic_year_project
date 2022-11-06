@@ -16,7 +16,7 @@ ________________________________________________________________________________
 ### What have I done :question:
 
 __Client application from the side of the first player:__
-<img src="[Assets/icon.png](KSiS_Academic_year_project/blob/main/Screenshots/1.png)" width="200">
+<img src="[Assets/icon.png](Screenshots/1.png)" width="200">
 
 __Client application from the side of the second player:__
 ![](https://github.com/nika-doroshkevich/KSiS_Academic_year_project/blob/main/Screenshots/2.png =100x20)
